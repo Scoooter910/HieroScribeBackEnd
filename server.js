@@ -11,6 +11,11 @@ const COMMENTS_FILE = path.join(__dirname, 'comments.json');
 app.use(cors());
 app.use(bodyParser.json());
 
+// Default route for root path
+app.get('/', (req, res) => {
+  res.send('Welcome to HieroScribe Backend!');
+});
+
 // Read comments
 app.get('/comments', (req, res) => {
   fs.readFile(COMMENTS_FILE, 'utf8', (err, data) => {
