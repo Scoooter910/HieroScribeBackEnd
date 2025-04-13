@@ -8,7 +8,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const COMMENTS_FILE = path.join(__dirname, 'comments.json');
 
+// Allow CORS for all origins (for testing)
 app.use(cors());
+// If you need to restrict to only one domain, use this:
+// app.use(cors({ origin: 'https://your-frontend-url.com' }));
+
 app.use(bodyParser.json());
 
 // Default route for root path
